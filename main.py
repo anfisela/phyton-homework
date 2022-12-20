@@ -1,73 +1,27 @@
-# Задание 9
-print("задание 9:")
-string_numbers = [b for b in range(1, 11)]
+def read_data(file_name):
+    file = open(file_name)
+    content = file.read()
+    return content
 
-print("Ответ:", list(map(lambda num: num**2, string_numbers)))
+def write_data(file_name, data):
+    f = open(file_name, "w")
+    f.write(data)
+    f.close()
 
-# Задание 10 
-print("задание 10:")
-
-cordinats = [(1, 3), (2, 3), (5, 3),(0,-2)]
-answer = []
-for i in cordinats:
-    x = i[0]
-    y = i[1]
-    if y == 5 * x - 2:
-        answer.append((i, (y**2 + x**2)**0.5))
-print("Ответ:" ,answer)
-
-# Задание 11
-print("задание 11:")
-numbers = [c for c in range(2, 28)]
-lists = []
-for i in numbers:
-    if i % 2 == 0:
-       lists.append(i)
-
-print("Ответ:", list(map(lambda num: num**2, lists)))
-
-
-# Задание 12
-print("задание 12:")
-cordinats_1 = [(1, 3), (2, 3), (5, 3), (0, -2)]
-max_cords=max(cordinats_1)
-print("Ответ:" ,max_cords)
-
-
-# Задание 13
-print("задание 13:")
-numbers_1 = [1, 2, 3, 5, 8]
-numbers_2 = [2, 4, 8, 16, 32]
-plus=[a+b for a, b in zip(numbers_1, numbers_2)]
-minus=[a-b for a, b in zip(numbers_1, numbers_2)]
-result=(list(zip(plus, minus)))
+def prepare_lines(data):
+    splitted = data.split('\n')
+    titles, line_1, line_2, line_3 = splitted[0], splitted[1], splitted[2], splitted[3]
+    labels = titles.split(',')
+    line_1_formatted = line_1.split(',')
     
-print("Ответ:" ,result)
+    line_2_formatted = line_2.split(',')
+    line_3_formatted = line_3.split(',')
+    one = dict(zip(labels,line_1_formatted))
+    two = dict(zip(labels,line_2_formatted))
+    three = dict(zip(labels,line_3_formatted))
+    print(one)
+    print(two)
+    print(three)
 
-
-#Задание 16
-print("задание 16:")
-a = [[11.9, 12.2, 12.9],
-    [15.3, 15.1, 15.1], 
-    [16.3, 16.5, 16.5],
-    [17.7, 17.5, 18.1]]
-
-c=[]
-for i in range (len(a[0])):
-    stolbtsy=0
-    for j in range (len(a)):
-        stolbtsy+=a[j][i]
-    c.append(stolbtsy)
- 
-print("Ответ:" ,c)
-    
-
-
-
-
-
-
-
-   
-
-
+content = read_data("input.csv")
+prepare_lines(content)

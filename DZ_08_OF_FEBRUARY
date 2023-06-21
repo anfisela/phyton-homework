@@ -1,0 +1,42 @@
+1. посчитать кол-во страниц на сайте 
+2. вывести цену и название товаров на сайте
+https://quotes.toscrape.com/page/1/
+
+1.	Подсчет
+import requests
+from bs4 import BeautifulSoup
+url = 'https://quotes.toscrape.com/page/1/'  
+response = requests.get(url)
+
+soup = BeautifulSoup(response.text, 'html.parser')
+
+page_count_element = soup.find('span', class_='page-count')  
+
+page_count = int(page_count_element.text)
+
+print("Количество страниц на сайте:", page_count)
+
+2.	Вывод цен
+import requests
+from bs4 import BeautifulSoup
+url = 'https://quotes.toscrape.com/page/1/'
+
+response = requests.get(url)
+
+soup = BeautifulSoup(response.text, 'html.parser')
+
+quote_elements = soup.find_all('div', class_='quote')
+
+for quote_element in quote_elements:
+    text_element = quote_element.find('span', class_='text')
+    author_element = quote_element.find('span', class_='author')
+    price_element = quote_element.find('span', class_='price')
+
+    text = text_element.text
+    author = author_element.text
+    price = price_element.text
+
+    print("Название товара:", text)
+    print("Автор:", author)
+    print("Цена:", price)
+    print()

@@ -1,0 +1,53 @@
+#Задание 1 
+
+students = [
+    "Котов Алексей: 3",
+    "Белова Юлия: 3",
+    "Шахвалиева Юлиана: 4",
+    "Зосимов Кирилл: 3",
+    "Нырка Оксана: 3",
+    "Манасян Артем: 3",
+    "Кленков Андрей: 4",
+    "Николаев Михаил: 3",
+    "Курбанов Нурлан: 3",
+    "Митранкова Мария: 3",
+    "Стеблин Илья: 3",
+    "Мосейчук Артемий: 4",
+    "Бакушкин Даниил: 3",
+    "Белогур Алексей: 3",
+    "Кольтюгин Максим: 3",
+    "Малашенко Борис: 4",
+    "Спасов Михаил: 3",
+    "Пономарева Виктория: 4",
+    "Шувалова Полина: 3",
+    "Зисман Илья: 3",
+    "Терещенко Денис: 3"
+]
+sorted_students = sorted(students, key=lambda x: x.split(":")[0].strip())
+for i, student in enumerate(sorted_students, start=1):
+    print(f"{i}. {student}")
+
+#Задание 2 
+
+data = [
+    "KP2.2-01 - Vedomost'",
+    "KP2.2-01.1 - Vedomost'",
+    "KP2.2-01.2 - Vedomost'",
+    "KP2.2-01.3 - Vedomost'",
+    "KP2.2-10 - Schema rapolozheniya",
+    "KP2.2-10.1 - Schema rapolozheniya",
+    "KP2.2-10.2 - Schema rapolozheniya",
+    "KP2.2-2 - Schema",
+    "KP2.2-2.1 - Schema",
+    "KP2.2-30 - Second Schema rapolozheniya 2",
+    "KP2.2-30.1 - SecondnSchema rapolozheniya 2",
+    "KP2.2-3 - Schema rapolozheniya",
+    "KP2.2-4 - Schema rapolozheniya",
+    "KP2.2-9 - Schema rapolozheniya",
+    "KP2.2-13 - Schema rapolozheniya",
+    "KP2.2-14 - Schema rapolozheniya",
+    "KP2.2-20 - Schema rapolozheniya"
+]
+sorted_data = sorted(data, key=lambda x: int(x.split('-')[0].split('.')[0][2:]))
+for item in sorted_data:
+    print(item)

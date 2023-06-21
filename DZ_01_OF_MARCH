@@ -1,0 +1,22 @@
+Посчитать количество emoji в разделе nature, music, science
+
+import requests
+from bs4 import BeautifulSoup
+def count_emoji_in_section(section_url):
+    response = requests.get(section_url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    emoji_list = soup.find_all('span', class_='emoji')
+    count = len(emoji_list)
+    return count
+section_urls = [
+    'https://emojipedia.org/nature/',
+    'https://emojipedia.org/music/',
+    'https://emojipedia.org/science/'
+]
+total_count = 0
+for section_url in section_urls:
+    count = count_emoji_in_section(section_url)
+    total_count += count
+    section_name = section_url.split('/')[-2]
+    print(f"Количество emoji в разделе '{section_name}': {count}")
+print(f"Общее количество emoji: {total_count}")

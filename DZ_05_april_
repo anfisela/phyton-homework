@@ -1,0 +1,17 @@
+data = [
+    [32, 230211, 1],
+    [54, 842394, 2],
+    [43, 528498, 3],
+    [34, 647246, 7],
+    [21, 473283, 5],
+    [32, 423893, 6]
+]
+for row in data:
+    employee_id = row[0]
+    salary = row[1]
+    month = row[2]
+
+    print(f"Employee ID: {employee_id}")
+    print(f"Salary: ${salary}")
+    print(f"Month: {month}")
+    print()
